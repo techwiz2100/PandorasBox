@@ -321,6 +321,7 @@ Pandora: $(builddir)/Pandora
 all: $(builddir)/Pandora
 
 install: Pandora
+	install -d $(DESTDIR)/opt/PandorasBox/bin
 	install -m 0755 $(builddir)/Pandora $(DESTDIR)/bin/
 	install -m 0755 $(builddir)/*.so $(DESTDIR)/bin/
 	install -m 0644 $(builddir)/*.pak $(DESTDIR)/bin/
