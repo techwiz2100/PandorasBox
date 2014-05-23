@@ -325,6 +325,6 @@ install: Pandora
 	install -m 0755 $(builddir)/Pandora $(DESTDIR)/opt/PandorasBox/bin/
 	install -m 0755 $(builddir)/*.so $(DESTDIR)/opt/PandorasBox/bin/
 	install -m 0644 $(builddir)/*.pak $(DESTDIR)/opt/PandorasBox/bin/
-	install -D -m 0644 $(builddir)/locales $(DESTDIR)/opt/PandorasBox/bin/locales
+	install -D -m 0644 $(builddir)/locales/* $(DESTDIR)/opt/PandorasBox/bin/locales/
 
 .PHONY: install 
