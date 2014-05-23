@@ -336,5 +336,3 @@ d_files := $(wildcard $(foreach f,$(all_deps),$(depsdir)/$(f).d))
 ifneq ($(d_files),)
   include $(d_files)
 endif
-
-install: Pandora
