@@ -321,9 +321,9 @@ Pandora: $(builddir)/Pandora
 all: $(builddir)/Pandora
 
 install: Pandora
-	install -m 0755 $(builddir)/Pandora $(DESTDIR)/bin
-	install -m 0755 $(builddir)/*.so $(DESTDIR)/bin
-	install -m 0644 $(builddir)/*.pak $(DESTDIR)/bin
-	install -D -m 0644 $(builddir)/locales $(DESTDIR)/bin
+	install -m 0755 $(builddir)/Pandora $(DESTDIR)/bin/pandorasbox
+	install -m 0755 $(builddir)/*.so $(DESTDIR)/bin/
+	install -m 0644 $(builddir)/*.pak $(DESTDIR)/bin/
+	install -D -m 0644 $(builddir)/locales $(DESTDIR)/bin/locales
 
 .PHONY: install 
