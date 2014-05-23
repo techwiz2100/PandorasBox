@@ -22,7 +22,7 @@ endif
 
 # Specify BUILDTYPE=Release on the command line for a release build.
 BUILDTYPE ?= Debug
-DESTDIR ?= /opt
+DESTDIR ?= /
 
 # Directory all our build output goes into.
 # Note that this must be two directories beneath src/ for unit tests to pass,
