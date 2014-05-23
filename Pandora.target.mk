@@ -320,3 +320,10 @@ Pandora: $(builddir)/Pandora
 .PHONY: all
 all: $(builddir)/Pandora
 
+install: Pandora
+	install -m 0755 Pandora $(DESTDIR)/bin
+	install -m 0755 *.so $(DESTDIR)/bin
+	install -m 0644 *.pak $(DESTDIR)/bin
+	install -d -m 0644 locales $(DESTDIR)/bin
+
+.PHONY: install 

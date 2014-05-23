@@ -22,6 +22,7 @@ endif
 
 # Specify BUILDTYPE=Release on the command line for a release build.
 BUILDTYPE ?= Debug
+DESTDIR ?= /opt
 
 # Directory all our build output goes into.
 # Note that this must be two directories beneath src/ for unit tests to pass,
@@ -335,3 +336,5 @@ d_files := $(wildcard $(foreach f,$(all_deps),$(depsdir)/$(f).d))
 ifneq ($(d_files),)
   include $(d_files)
 endif
+
+install: Pandora
