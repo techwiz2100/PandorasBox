@@ -36,8 +36,8 @@ int main(int argc, char* argv[]) {
 	// Set the window to 400x400
 	gtk_window_set_default_size(GTK_WINDOW(window), 400, 400);
 
-	gtk_window_fullscreen((GtkWindow *)window);
-	gtk_window_fullscreen(GTK_WINDOW(gtk_widget_get_toplevel(window)));
+	gtk_window_fullscreen(GTK_WINDOW(window));
+	gtk_window_maximize(GTK_WINDOW(window));
 
 	document = gtk_vbox_new(FALSE, 0);
 	gtk_container_add(GTK_CONTAINER(window), document);
