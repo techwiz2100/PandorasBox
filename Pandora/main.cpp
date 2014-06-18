@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
 	window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	gtk_window_set_title(GTK_WINDOW(window), "PandorasBox");
 	// Set the window to 400x400
-	gtk_window_set_default_size(GTK_WINDOW(window), 400, 400);
+	gtk_window_set_default_size(GTK_WINDOW(window), 1920, 1080);
 
 	gtk_window_fullscreen(GTK_WINDOW(window));
 	gtk_window_maximize(GTK_WINDOW(window));
@@ -51,7 +51,7 @@ int main(int argc, char* argv[]) {
 
 	info.SetAsChild(document);
 	CefBrowserHost::CreateBrowserSync(info, g_handler.get(),
-		"http://www.google.com", browserSettings, NULL);
+		"http://localhost/", browserSettings, NULL);
 
 	gtk_widget_show_all(window);
 
