@@ -328,6 +328,6 @@ install: Pandora
 	install -m 0755 $(builddir)/*.so $(DESTDIR)/opt/PandorasBox/bin/
 	install -m 0644 $(builddir)/*.pak $(DESTDIR)/opt/PandorasBox/bin/
 	install -m 0644 $(builddir)/locales/* $(DESTDIR)/opt/PandorasBox/bin/locales/
-	cp -dpr --no-reserve=ownership Apps/ $(DESTDIR)/opt/PandorasBox/
+	cp -dpr --no-preserve=ownership Apps/ $(DESTDIR)/opt/PandorasBox/
 
 .PHONY: install 
