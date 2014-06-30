@@ -3,6 +3,8 @@
 */
 
 #include <gtk/gtk.h>
+#include <fstream>
+#include <string>
 
 #include "include/cef_app.h"
 
@@ -13,6 +15,23 @@ CefRefPtr<PandoraHandler> g_handler;
 void destroy(void) {
 	// Tells CEF to quit its message loop so the application can exit.
 	CefQuitMessageLoop();
+}
+
+void PandoraHandler::OnContextCreated(CefRefPtr<CefBrowser> browser,CefRefPtr<CefFrame> frame,CefRefPtr<CefV8Context> context) {
+	CefRefPtr<CefV8Value> object = context->GetGlobal();
+
+	std::ifstream in("../config.json", std::ios::in | std::ios::binary);
+	std::string contents;
+	if (in)	{
+		in.seekg(0, std::ios::end);
+		contents.resize(in.tellg());
+		in.seekg(0, std::ios::beg);
+		in.read(&contents[0], contents.size());
+		in.close();
+	}
+
+	CefRefPtr<CefV8Value> str = CefV8Value::CreateString(contents.c_str());
+	object->SetValue("config", str, V8_PROPERTY_ATTRIBUTE_NONE);
 }
 
 int main(int argc, char* argv[]) {
@@ -50,8 +69,19 @@ int main(int argc, char* argv[]) {
 	g_handler = new PandoraHandler();
 
 	info.SetAsChild(document);
+	
+	std::ifstream in("../config.json", std::ios::in | std::ios::binary);
+	std::string contents;
+	if (in)	{
+		in.seekg(0, std::ios::end);
+		contents.resize(in.tellg());
+		in.seekg(0, std::ios::beg);
+		in.read(&contents[0], contents.size());
+		in.close();
+	}
+
 	CefBrowserHost::CreateBrowserSync(info, g_handler.get(),
-		"http://localhost/", browserSettings, NULL);
+		"http://192.168.56.101/", browserSettings, NULL);
 
 	gtk_widget_show_all(window);
 

@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			window.onload = function (){
+				console = document.getElementById("console");
+				console.innerHTML = "Console initialized!</br>";
+				xhr = new XMLHttpRequest();
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState == 4 && xhr.status == 200){
+						window.config = JSON.parse(xhr.responseText);
+						populateApps();
+					}
+				}
+				xhr.open("GET", "config.json", true);
+				xhr.send();
+				setTimeout(showTime,1);
+			}
+			function populateApps(){
+				parent = document.getElementById("apps");
+				for (var app in window.config.applications) {
+					console.innerHTML += "app: " + app + " appid: " + window.config.applications[app].id + "</br>";
+					app = window.config.applications[app];
+					elem = "<div class=\"appIcon\" id=\"" + app.id + "\"><a href=\"" + (typeof(app.url) == "undefined" ? app.root : app.url) + "\"><img src=\"" + app.root + app.icons + window.config.settings.defaultIconSize + ".png\"/></a><div>";
+					parent.innerHTML += elem;
+				}
+			}
+			function showTime(){
+				var date = new Date();
+				document.getElementById("clock").innerHTML = date.toLocaleString("en-US", {year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric", hour12: true});
+				setTimeout(showTime,500);
+			}
+		</script>
+		<link rel="stylesheet" type="text/css" href="apps.css">
+	</head>
+	<body>
+		<span id="apps"></span>
+		<span id="console"></span>
+		<div id="statusBar">
+			<span id="clock"></span>
+			<a href="#" id="settingsGear"><img src="img/settings.png"/></a>
+		</div>
+	</body>
+</html>

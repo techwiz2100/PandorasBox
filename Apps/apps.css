@@ -1,0 +1,43 @@
+body {
+  background: #004799;
+  background: -webkit-gradient(linear, left top, left bottom,
+		color-stop(0%, #003789), color-stop(63%,#0266B9),
+		color-stop(100%, #4094D5));
+  font-family: Verdana, Geneva, sans-serif;
+}
+div.appIcon {
+  float:left;
+  margin: 25px;
+}
+
+div.appIcon img {
+  border-radius: 35px;
+  box-shadow: 0px 0px 20px black;
+}
+
+span#clock {
+  position: fixed;
+  bottom: 0;
+  padding: 10px;
+  #font-weight: bold;
+  font-size: larger;
+  color: #bbb;
+}
+
+div#statusBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3.5em;
+  background: #444444;
+  background: -webkit-gradient(linear, left top, left bottom, 
+	color-stop(0%, RGBA(100,100,100,0)), 
+	color-stop(45%, RGBA(50,50,50,0.5)), 
+	color-stop(100%, RGBA(0,0,0,1)));
+}
+
+#settingsGear {
+  float: right;
+  padding: 15px;
+}

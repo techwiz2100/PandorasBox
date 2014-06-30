@@ -319,6 +319,7 @@ Pandora: $(builddir)/Pandora
 # Add executable to "all" target.
 .PHONY: all
 all: $(builddir)/Pandora
+	ln -s /usr/lib/libudev.so $(builddir)/libudev.so.0
 
 install: Pandora
 	install -d $(DESTDIR)/opt/PandorasBox/bin
@@ -327,6 +328,6 @@ install: Pandora
 	install -m 0755 $(builddir)/*.so $(DESTDIR)/opt/PandorasBox/bin/
 	install -m 0644 $(builddir)/*.pak $(DESTDIR)/opt/PandorasBox/bin/
 	install -m 0644 $(builddir)/locales/* $(DESTDIR)/opt/PandorasBox/bin/locales/
-	ln -s /usr/lib/libudev.so $(DESTDIR)/opt/PandorasBox/bin/libudev.so.0
+	cp -dpr --no-reserve=ownership Apps/ $(DESTDIR)/opt/PandorasBox/
 
 .PHONY: install 

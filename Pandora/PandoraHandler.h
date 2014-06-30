@@ -9,6 +9,8 @@ public:
 	PandoraHandler() { }
 	~PandoraHandler() { }
 
+	void OnContextCreated(CefRefPtr<CefBrowser> browser,CefRefPtr<CefFrame> frame,CefRefPtr<CefV8Context> context);
+
 	// Note that any of the IMPLEMENT_WHATEVER
 	// macros that come with CEF can (and do) set
 	// access modifiers, so you'll want them after

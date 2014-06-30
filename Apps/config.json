@@ -1,0 +1,22 @@
+{
+	"applications":[
+		{
+			"name":"Pandora",
+			"id":"aa8a127d9d791fdd305f",
+			"url":"http://www.pandora.com/",
+			"root":"aa8a127d9d791fdd305f/",
+			"icons":"icons/"
+		},
+		{
+		 	"name":"Netflix",
+		 	"id":"3f67559e516c40fa573e",
+			"url":"http://www.netflix.com/Login",
+			"root":"3f67559e516c40fa573e/",
+			"icons":"icons/"
+		}
+	],
+	"settings":{
+		"applicationRoot":"Apps/",
+		"defaultIconSize":256
+	}
+}
